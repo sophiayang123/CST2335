@@ -1,0 +1,7 @@
+<resources>
+<!--    <string name="app_name">Lab1</string>-->
+<!--    <string name="hello_message">你好</string>-->
+    <string name="app_name" translatable="false">Lab1</string>
+    <string name="hello_message" translatable="false">你好</string>
+    <string name="ButtonText">I\'m a button</string>
+</resources>
