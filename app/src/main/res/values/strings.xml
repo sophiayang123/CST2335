@@ -4,4 +4,9 @@
     <string name="app_name" translatable="false">Lab1</string>
     <string name="hello_message" translatable="false">hello</string>
     <string name="ButtonText">I\'m a button</string>
+    <string name="title">Look at my GUI</string>
+    <string name="ButtonText2">Click here</string>
+    <string name="Checkbox">Check this out</string>
+    <string name="sw">switch on or off</string>
+    <string name="et">Type here</string>
 </resources>
