@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:columnCount="2"
+android:orientation="horizontal"
+android:rowCount="4"
+android:layout_weight="1"
+android:layout_gravity="fill">
+<!--    tools:context=".MainActivity"-->
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnSpan="2"
+    android:orientation="horizontal"
+    android:text="Your profile"
+    android:textSize="25dp"
+    android:gravity="fill_horizontal"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnSpan="2"
+    android:orientation="horizontal"
+    android:text="Your name:"
+    android:textSize="25dp"
+    android:gravity="fill_horizontal"/>
+
+<EditText
+    android:id="@+id/name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnSpan="2"
+    android:text="Enter your name"
+    />
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnSpan="2"
+    android:orientation="horizontal"
+    android:text="Your email:"
+    android:textSize="23dp"
+    android:gravity="fill_horizontal"/>
+
+<EditText
+    android:id="@+id/emailAddress"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnSpan="2"
+    android:text="Enter your email"
+    android:inputType="textEmailAddress"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnSpan="2"
+    android:orientation="horizontal"
+    android:text="Your picture:"
+    android:textSize="20dp"
+    android:gravity="fill_horizontal"/>
+
+<imageButton
+    android:id="@+id/imgButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:src="@android:drawable/picture_frame"
+    android:text="Image"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnSpan="2"
+    android:orientation="horizontal"
+    android:text="Click the button above to take a picture"
+    android:textSize="20dp"
+    android:gravity="fill_horizontal"/>
+
+
+</GridLayout>
+
+
+
+

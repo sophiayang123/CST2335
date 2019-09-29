@@ -10,7 +10,7 @@
     android:rowCount="4"
     android:layout_weight="1"
     android:layout_gravity="fill">
-<!--    tools:context=".MainActivity"-->
+    <!--    tools:context=".MainActivity"-->
 
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
         android:orientation="horizontal"
-        android:text="Enter your password:"
+        android:text="Type your password:"
         android:textSize="25dp"
         android:gravity="fill_horizontal"/>
 
@@ -48,6 +48,12 @@
         android:layout_columnSpan="2"
         android:text=""
         android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/logInButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"/>
 
 
 </GridLayout>
