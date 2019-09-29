@@ -14,20 +14,21 @@ android:layout_gravity="fill">
 
 
 <TextView
+    android:id="@+id/textview3"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_columnSpan="2"
     android:orientation="horizontal"
-    android:text="Your profile"
+    android:text="@string/textview3"
     android:textSize="25dp"
     android:gravity="fill_horizontal"/>
 
 <TextView
+    android:id="@+id/textview4"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_columnSpan="2"
     android:orientation="horizontal"
-    android:text="Your name:"
+    android:text="@string/textview4"
     android:textSize="25dp"
     android:gravity="fill_horizontal"/>
 
@@ -36,15 +37,15 @@ android:layout_gravity="fill">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_columnSpan="2"
-    android:text="Enter your name"
+    android:hint="@string/name"
     />
 
 <TextView
+    android:id="@+id/textview5"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_columnSpan="2"
     android:orientation="horizontal"
-    android:text="Your email:"
+    android:text="@string/textview5"
     android:textSize="23dp"
     android:gravity="fill_horizontal"/>
 
@@ -53,19 +54,20 @@ android:layout_gravity="fill">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_columnSpan="2"
-    android:text="Enter your email"
+    android:hint="@string/email"
     android:inputType="textEmailAddress"/>
 
 <TextView
+    android:id="@+id/textview6"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_columnSpan="2"
     android:orientation="horizontal"
-    android:text="Your picture:"
+    android:text="@string/textview6"
     android:textSize="20dp"
     android:gravity="fill_horizontal"/>
 
-<imageButton
+<ImageButton
     android:id="@+id/imgButton"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -73,11 +75,12 @@ android:layout_gravity="fill">
     android:text="Image"/>
 
 <TextView
+    android:id="@+id/textview7"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_columnSpan="2"
     android:orientation="horizontal"
-    android:text="Click the button above to take a picture"
+    android:text="@string/textview7"
     android:textSize="20dp"
     android:gravity="fill_horizontal"/>
 

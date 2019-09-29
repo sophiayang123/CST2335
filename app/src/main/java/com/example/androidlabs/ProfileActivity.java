@@ -1,17 +1,16 @@
 package com.example.androidlabs;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-
+        import android.content.Intent;
+        import android.content.SharedPreferences;
+        import android.graphics.Bitmap;
+        import android.os.Bundle;
+        import android.provider.MediaStore;
+        import android.util.Log;
+        import android.view.View;
+        import android.widget.EditText;
+        import android.widget.ImageButton;
 
 public class ProfileActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -22,28 +21,37 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_grid);
+        setContentView(R.layout.profile_activity);
+
         Intent dataFromPreviousPage = getIntent();
         String emailAdd = dataFromPreviousPage.getStringExtra("emailAddress");
-        EditText email = findViewById(R.id.emailAddress);
+        EditText email = (EditText) findViewById(R.id.emailAddress);
         email.setText(emailAdd);
+
+         mImageButton = (ImageButton) findViewById(R.id.imgButton);
+         mImageButton.setOnClickListener(clk->{
+             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+             if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+             }
+         });
+
         Log.e(ACTIVITY_NAME, "In function:" + "onCreate");
     }
 
-
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
+//    private void dispatchTakePictureIntent() {
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//        }
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            mImageButton = findViewById(R.id.imgButton);
+            mImageButton = (ImageButton) findViewById(R.id.imgButton);
             mImageButton.setImageBitmap(imageBitmap);
         }
     }

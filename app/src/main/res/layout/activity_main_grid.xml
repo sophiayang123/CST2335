@@ -14,30 +14,30 @@
 
 
     <TextView
+        android:id="@+id/textview1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
         android:orientation="horizontal"
-        android:text="Enter your email address:"
+        android:text="@string/textview1"
         android:textSize="25dp"
         android:gravity="fill_horizontal"/>
-
-
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
-        android:text="Type your email here"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"/>
 
     <TextView
+        android:id="@+id/textview2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
         android:orientation="horizontal"
-        android:text="Type your password:"
+        android:text="@string/textview2"
         android:textSize="25dp"
         android:gravity="fill_horizontal"/>
 
@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
-        android:text=""
+        android:hint=""
         android:inputType="textPassword"/>
 
     <Button
