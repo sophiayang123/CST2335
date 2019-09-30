@@ -46,7 +46,4 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("defaultMail", editText.getText().toString());
         editor.commit();
     }
-
-
-
 }
