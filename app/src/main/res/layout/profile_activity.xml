@@ -12,7 +12,6 @@ android:layout_weight="1"
 android:layout_gravity="fill">
 <!--    tools:context=".MainActivity"-->
 
-
 <TextView
     android:id="@+id/textview3"
     android:layout_width="match_parent"
@@ -83,6 +82,12 @@ android:layout_gravity="fill">
     android:text="@string/textview7"
     android:textSize="20dp"
     android:gravity="fill_horizontal"/>
+
+    <Button
+        android:id="@+id/textButton"
+        android:layout_width="match_parent"
+        android:text="Go to chat room"
+        />
 
 
 </GridLayout>
