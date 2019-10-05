@@ -9,6 +9,7 @@ package com.example.androidlabs;
         import android.provider.MediaStore;
         import android.util.Log;
         import android.view.View;
+        import android.widget.Button;
         import android.widget.EditText;
         import android.widget.ImageButton;
 
@@ -16,6 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static ImageButton mImageButton;
+    static Button button;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
     @Override
@@ -36,7 +38,14 @@ public class ProfileActivity extends AppCompatActivity {
              }
          });
 
+         button = (Button) findViewById(R.id.textButton);
+         button.setOnClickListener(clk->{
+             Intent intent = new Intent(this, ChatRoomActivity.class);
+             startActivity(intent);
+         });
+
         Log.e(ACTIVITY_NAME, "In function:" + "onCreate");
+
     }
 
 
