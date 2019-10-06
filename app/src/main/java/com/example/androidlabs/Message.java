@@ -1,26 +1,29 @@
 package com.example.androidlabs;
 
 public class Message {
-    private String msg;
-    private String response;
+    private String message;
+    private boolean sendOrResponse;
 
-    public Message(String msg, String response) {
-        this.msg = msg;
-        this.response = response;
+    public Message(String message, boolean sendOrResponse) {
+        this.message = message;
+        this.sendOrResponse = sendOrResponse;
+    }
+
+    public Message() {
+
     }
 
     public void setMsg(String msg){
-        this.msg = msg;
+        this.message = msg;
     }
-    public void setResponse(String response){
-        this.response = response;
+    public void setResponse(boolean response){
+        this.sendOrResponse = response;
     }
     public String getMsg(){
-        return msg;
+        return message;
     }
-
-    public String getResponse(){
-        return response;
+    public boolean getResponse(){
+        return sendOrResponse;
     }
 
 
