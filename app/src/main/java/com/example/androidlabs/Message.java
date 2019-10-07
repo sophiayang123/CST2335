@@ -25,7 +25,4 @@ public class Message {
     public boolean getResponse(){
         return sendOrResponse;
     }
-
-
-
 }
