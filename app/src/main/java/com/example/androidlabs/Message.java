@@ -9,10 +9,6 @@ public class Message {
         this.sendOrResponse = sendOrResponse;
     }
 
-    public Message() {
-
-    }
-
     public void setMsg(String msg){
         this.message = msg;
     }

@@ -13,4 +13,7 @@
     <string name="textview6">Your picture:</string>
     <string name="textview7">Click the button above to take a picture</string>
 
+    <string name="textview8">Type here</string>
+    <string name="sendbutton">send</string>
+    <string name="receivebutton">receive</string>
 </resources>

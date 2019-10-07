@@ -12,4 +12,8 @@
     <string name="textview6">你的照片</string>
     <string name="textview7">点击上面按钮照相</string>
 
+    <string name="textview8">输入</string>
+    <string name="sendbutton">发送</string>
+    <string name="receivebutton">接受</string>
+
 </resources>

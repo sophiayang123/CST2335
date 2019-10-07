@@ -14,8 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:stackFromBottom="true"
         android:divider="@android:color/black"
         android:dividerHeight="0dp"/>
 
@@ -25,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:hint="Type here"
+        android:hint="@string/textview8"
         android:ems="9"
         android:layout_toRightOf="@+id/send_button"
 
@@ -35,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="SEND"/>
+        android:text="@string/sendbutton"/>
 
     <Button
         android:id="@+id/receive_button"
@@ -43,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-2dp"
-        android:text="RECEIVE"
+        android:text="@string/receivebutton"
         android:layout_toRightOf="@+id/message" />
 
 </RelativeLayout>
