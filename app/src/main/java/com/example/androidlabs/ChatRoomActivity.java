@@ -2,6 +2,8 @@ package com.example.androidlabs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,13 +25,14 @@ public class ChatRoomActivity extends AppCompatActivity {
     private EditText chatText;
 
     private boolean sendMsg = true;
-    MyListAdapter mylist;
-
+    private MyListAdapter mylist;
+    private Message message;
     private ArrayList<Message> chatMessage = new ArrayList<Message>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_chat_room);
@@ -39,24 +42,48 @@ public class ChatRoomActivity extends AppCompatActivity {
         chatText = (EditText) findViewById(R.id.message);
 
         send = (Button) findViewById(R.id.send_button);
+
+        myDatabaseOpenHelper myHelper  = new myDatabaseOpenHelper(this);
+        SQLiteDatabase db = myHelper.getWritableDatabase();
+
+        String [] columns = {myDatabaseOpenHelper.COL_ID, myDatabaseOpenHelper.COL_MESSAGE, myDatabaseOpenHelper.COL_SENDORRE};
+
+        Cursor results =  db.query(false, myHelper.TABLE_NAME, columns,null, null,null,null,null,null);
+
+        int msgColumnIndex = results.getColumnIndex(myHelper.COL_MESSAGE);
+        int srColumnIndex = results.getColumnIndex(myHelper.COL_SENDORRE);
+        int idColumnIndex = results.getColumnIndex(myHelper.COL_ID);
+
+        while(results.moveToNext()){
+            String message = results.getString(msgColumnIndex);
+            //here transform sr to number  1 or 0;
+            Boolean sr = results.getInt(srColumnIndex)>0;
+            long id = results.getLong(idColumnIndex);
+            chatMessage.add(new Message(message,sr,id));
+        }
+
         send.setOnClickListener( clk ->{
             sendMsg = true;
-            mylist.add(new Message(chatText.getText().toString(), sendMsg));
+            message = new Message(chatText.getText().toString(), sendMsg);
+            mylist.add(message);
             listView.setSelection(chatMessage.size() - 1);
             chatText.getText().clear();
+            myHelper.addData(message.getMsg(),message.getResponse());
         });
 
         receive = (Button) findViewById(R.id.receive_button);
         receive.setOnClickListener( clk ->{
             sendMsg = false;
-            mylist.add(new Message(chatText.getText().toString(), sendMsg));
+            message =new Message(chatText.getText().toString(), sendMsg);
+            mylist.add(message);
             listView.setSelection(chatMessage.size() - 1);
             chatText.getText().clear();
+            myHelper.addData(message.getMsg(),message.getResponse());
         });
-//        mylist.add(new Message("hello", sendMsg));
-//        mylist.add(new Message("who is that?", !sendMsg));
 
         listView.setAdapter(mylist= new MyListAdapter());
+
+
     }
 
     public class MyListAdapter extends BaseAdapter {
@@ -79,18 +106,19 @@ public class ChatRoomActivity extends AppCompatActivity {
         public View getView(int position, View newView, ViewGroup viewGroup) {
             Message message = getItem(position);
             LayoutInflater inflater = getLayoutInflater();
+            if(newView==null){
+                if(sendMsg){
+                    TextView sendChat;
+                    newView = inflater.inflate(R.layout.message_send, viewGroup, false);
+                    sendChat = (TextView) newView.findViewById(R.id.sendText);;
+                    sendChat.setText(message.getMsg());
 
-            if(sendMsg){
-                TextView sendChat;
-                newView = inflater.inflate(R.layout.message_send, viewGroup, false);
-                sendChat = (TextView) newView.findViewById(R.id.sendText);;
-                sendChat.setText(message.getMsg());
-
-            }else{
-                TextView receiveChat;
-                newView = inflater.inflate(R.layout.message_receive, viewGroup, false);
-                receiveChat = (TextView) newView.findViewById(R.id.receiveText);
-                receiveChat.setText(message.getMsg());
+                }else{
+                    TextView receiveChat;
+                    newView = inflater.inflate(R.layout.message_receive, viewGroup, false);
+                    receiveChat = (TextView) newView.findViewById(R.id.receiveText);
+                    receiveChat.setText(message.getMsg());
+                }
             }
             return newView;
         }
