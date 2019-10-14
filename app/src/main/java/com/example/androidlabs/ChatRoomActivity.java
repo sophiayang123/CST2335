@@ -82,8 +82,6 @@ public class ChatRoomActivity extends AppCompatActivity {
         });
 
         listView.setAdapter(mylist= new MyListAdapter());
-
-
     }
 
     public class MyListAdapter extends BaseAdapter {

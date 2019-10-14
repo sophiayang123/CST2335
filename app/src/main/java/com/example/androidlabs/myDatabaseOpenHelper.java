@@ -5,6 +5,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.nfc.Tag;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -50,5 +52,12 @@ public class  myDatabaseOpenHelper extends SQLiteOpenHelper {
         }else{
             return true;
         }
+
+
+    }
+
+    public void printCursor(){
+        final String TAG = "Print out Cursor";
+        Log.d(TAG,DATABASE_NAME +" "+ VERSION_NUM);
     }
 }
