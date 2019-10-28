@@ -3,6 +3,7 @@ package com.example.androidlabs;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.nfc.Tag;
@@ -45,7 +46,12 @@ public class  myDatabaseOpenHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_MESSAGE, item);
-        contentValues.put(COL_SENDORRE, SorR);
+        if(SorR){
+            contentValues.put(COL_SENDORRE, 1);
+        }else{
+            contentValues.put(COL_SENDORRE, 0);
+        }
+
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1){
             return false;
@@ -56,8 +62,5 @@ public class  myDatabaseOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    public void printCursor(){
-        final String TAG = "Print out Cursor";
-        Log.d(TAG,DATABASE_NAME +" "+ VERSION_NUM);
-    }
+
 }
