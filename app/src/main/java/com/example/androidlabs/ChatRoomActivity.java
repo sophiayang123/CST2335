@@ -19,6 +19,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ChatRoomActivity extends AppCompatActivity {
     private Button send;
@@ -42,27 +43,15 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         chatText = (EditText) findViewById(R.id.message);
 
-        send = (Button) findViewById(R.id.send_button);
-
-
         SQLiteDatabase db = myHelper.getWritableDatabase();
 
         String [] columns = {myDatabaseOpenHelper.COL_ID, myDatabaseOpenHelper.COL_MESSAGE, myDatabaseOpenHelper.COL_SENDORRE};
 
         Cursor results =  db.query(false, myHelper.TABLE_NAME, columns,null, null,null,null,null,null);
 
-        int msgColumnIndex = results.getColumnIndex(myHelper.COL_MESSAGE);
-        int srColumnIndex = results.getColumnIndex(myHelper.COL_SENDORRE);
-        int idColumnIndex = results.getColumnIndex(myHelper.COL_ID);
+        printCursor(results);
 
-        while(!results.isAfterLast()){
-            String message = results.getString(msgColumnIndex);
-            //here transform sr to number  1 or 0;
-            sendMsg = results.getInt(srColumnIndex)>0;
-            long id = results.getLong(idColumnIndex);
-            chatMessage.add(new Message(message,sendMsg,id));
-            results.moveToNext();
-        }
+        send = (Button) findViewById(R.id.send_button);
 
         send.setOnClickListener( clk ->{
             sendMsg = true;
@@ -86,6 +75,29 @@ public class ChatRoomActivity extends AppCompatActivity {
     }
 
 
+    public void printCursor(Cursor cursor){
+        String TAG = "PrintCursor";
+        Log.i(TAG, "db version number "+ myHelper.VERSION_NUM);
+        Log.i(TAG, "db total column "+ cursor.getColumnCount());
+        Log.i(TAG, "db columns name "+ Arrays.toString(cursor.getColumnNames()));
+        Log.i(TAG, "db number results "+ cursor.getCount());
+        Log.i(TAG, "db row of results "+ cursor.getCount());
+
+
+        int msgColumnIndex = cursor.getColumnIndex(myHelper.COL_MESSAGE);
+        int srColumnIndex = cursor.getColumnIndex(myHelper.COL_SENDORRE);
+        int idColumnIndex = cursor.getColumnIndex(myHelper.COL_ID);
+
+        cursor.moveToPosition(-1);
+        while(cursor.moveToNext()){
+            String message = cursor.getString(msgColumnIndex);
+            //here transform sr to number  1 or 0;
+         //   boolean isSend = cursor.getInt
+            sendMsg = cursor.getInt(srColumnIndex)>0;
+            long id = cursor.getLong(idColumnIndex);
+            chatMessage.add(new Message(message,sendMsg,id));
+        }
+    }
 
     public class MyListAdapter extends BaseAdapter {
         @Override
@@ -108,15 +120,16 @@ public class ChatRoomActivity extends AppCompatActivity {
             Message message = getItem(position);
             if (newView ==null){
                 LayoutInflater inflater = getLayoutInflater();
+                sendMsg = getItem(position).getResponse();
                 if(sendMsg){
                     TextView sendChat;
-                    newView = inflater.inflate(R.layout.message_send, viewGroup, false);
+                    newView = inflater.inflate(R.layout.message_send, null);
                     sendChat = (TextView) newView.findViewById(R.id.sendText);;
                     sendChat.setText(message.getMsg());
 
                 }else{
                     TextView receiveChat;
-                    newView = inflater.inflate(R.layout.message_receive, viewGroup, false);
+                    newView = inflater.inflate(R.layout.message_receive, null);
                     receiveChat = (TextView) newView.findViewById(R.id.receiveText);
                     receiveChat.setText(message.getMsg());
                 }
