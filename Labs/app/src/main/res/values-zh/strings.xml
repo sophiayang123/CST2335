@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">实验三</string>
+    <string name="textview1" >输入你的电邮</string>
+    <string name="textview2">输入你的密码</string>
+    <string name="email">输入你的名字</string>
+    <string name="logInButton">登录</string>
+    <string name="textview3">你的简历</string>
+    <string name="textview4">你的名字</string>
+    <string name="name">输入你的名字</string>
+    <string name="textview5">你的电邮</string>
+    <string name="textview6">你的照片</string>
+    <string name="textview7">点击上面按钮照相</string>
+
+</resources>

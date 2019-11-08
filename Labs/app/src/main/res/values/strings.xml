@@ -1,0 +1,16 @@
+<resources>
+    <!--    <string name="app_name">Lab1</string>-->
+    <!--    <string name="hello_message">你好</string>-->
+    <string name="app_name" translatable="false">Lab3</string>
+    <string name="textview1" translatable="false">Enter your email address:</string>
+    <string name="textview2">Enter your password here</string>
+    <string name="email">Type your email here</string>
+    <string name="logInButton">LOGIN</string>
+    <string name="textview3">Your profile</string>
+    <string name="textview4">Your name:</string>
+    <string name="name">Enter your name</string>
+    <string name="textview5">Your email:</string>
+    <string name="textview6">Your picture:</string>
+    <string name="textview7">Click the button above to take a picture</string>
+
+</resources>
