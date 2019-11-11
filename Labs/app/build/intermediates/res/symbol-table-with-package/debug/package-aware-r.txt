@@ -653,6 +653,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id UVRating
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -693,6 +694,7 @@ id clip_vertical
 id collapseActionView
 id content
 id contentPanel
+id currentTemp
 id custom
 id customPanel
 id decor_content_parent
@@ -732,8 +734,10 @@ id listMode
 id list_item
 id list_of_message
 id logInButton
+id maxTemp
 id message
 id middle
+id minTemp
 id multiply
 id name
 id never
@@ -749,6 +753,7 @@ id passwrd
 id percent
 id progress_circular
 id progress_horizontal
+id progressbar
 id radio
 id receiveText
 id receive_button
@@ -812,6 +817,8 @@ id topPanel
 id uniform
 id up
 id useLogo
+id weatherButton
+id weatherImage
 id withText
 id wrap
 id wrap_content
@@ -850,6 +857,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_chat_room
 layout activity_main_grid
+layout activity_weather_forecast
 layout message_receive
 layout message_send
 layout notification_action
@@ -908,7 +916,9 @@ string app_name
 string email
 string logInButton
 string name
+string receivebutton
 string search_menu_title
+string sendbutton
 string status_bar_notification_info_overflow
 string textview1
 string textview2
@@ -917,6 +927,7 @@ string textview4
 string textview5
 string textview6
 string textview7
+string textview8
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

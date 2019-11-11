@@ -1,21 +1,23 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\programming works\\CST2335\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "D:\\programming works\\CST2335\\Labs\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "D:\\programming works\\CST2335\\app\\src\\main\\res\\values-zh\\strings.xml",
+                    "source": "D:\\programming works\\CST2335\\Labs\\app\\src\\main\\res\\values-zh\\strings.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "2,5,6,9,16,15,3,4,7,8,10,11,12,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "57,192,234,366,630,587,99,146,278,322,407,451,495,545",
+                        "endColumns": "40,40,42,39,44,41,45,44,42,42,42,42,46,40",
+                        "endOffsets": "93,228,272,401,670,624,140,186,316,360,445,489,537,581"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,96,137,180,220,265,310,353,396,439,482",
-                        "endColumns": "40,40,42,39,44,44,42,42,42,42,46",
-                        "endOffsets": "91,132,175,215,260,305,348,391,434,477,524"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,96,137,180,220,265,307,352,397,440,483,526,569,616",
+                        "endColumns": "40,40,42,39,44,41,44,44,42,42,42,42,46,40",
+                        "endOffsets": "91,132,175,215,260,302,347,392,435,478,521,564,611,652"
                     }
                 }
             ]
