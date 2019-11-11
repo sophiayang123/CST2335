@@ -9,42 +9,56 @@
     tools:context=".ChatRoomActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/weatherImage"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="75dp" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/currentTemp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="294dp" />
+        android:text="current temp"
+        android:layout_below="@id/weatherImage"
+        android:gravity="fill_horizontal"
+        android:layout_marginTop="20dp"
+        />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/minTemp"
+        android:layout_width="1in"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="292dp" />
+        android:text="minimum temp"
+        android:layout_below="@id/currentTemp"
+        android:layout_marginTop="10dp"
+        android:gravity="fill_horizontal"
+     />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:id="@+id/maxTemp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="329dp" />
+        android:layout_below="@id/currentTemp"
+        android:layout_toRightOf="@id/minTemp"
+        android:layout_marginTop="10dp"
+        android:text="max Temp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/UVRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="329dp" />
+        android:text="UVRating"
+        android:layout_below="@id/minTemp"
+        android:layout_marginTop="10dp"
+     />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/UVRating"
+        android:layout_marginTop="10dp"
+        />
+
 </RelativeLayout>

@@ -6,8 +6,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:columnCount="2"
-android:orientation="horizontal"
-android:rowCount="4"
+android:rowCount="10"
 android:layout_weight="1"
 android:layout_gravity="fill">
 <!--    tools:context=".MainActivity"-->
@@ -16,7 +15,6 @@ android:layout_gravity="fill">
     android:id="@+id/textview3"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:text="@string/textview3"
     android:textSize="25dp"
     android:gravity="fill_horizontal"/>
@@ -26,7 +24,6 @@ android:layout_gravity="fill">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_columnSpan="2"
-    android:orientation="horizontal"
     android:text="@string/textview4"
     android:textSize="25dp"
     android:gravity="fill_horizontal"/>
@@ -43,7 +40,6 @@ android:layout_gravity="fill">
     android:id="@+id/textview5"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:text="@string/textview5"
     android:textSize="23dp"
     android:gravity="fill_horizontal"/>
@@ -61,7 +57,6 @@ android:layout_gravity="fill">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_columnSpan="2"
-    android:orientation="horizontal"
     android:text="@string/textview6"
     android:textSize="20dp"
     android:gravity="fill_horizontal"/>
@@ -78,7 +73,6 @@ android:layout_gravity="fill">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_columnSpan="2"
-    android:orientation="horizontal"
     android:text="@string/textview7"
     android:textSize="20dp"
     android:gravity="fill_horizontal"/>
@@ -87,9 +81,15 @@ android:layout_gravity="fill">
         android:id="@+id/textButton"
         android:layout_width="match_parent"
         android:text="Go to chat room"
+        android:layout_columnSpan="2"
         />
 
-
+    <Button
+        android:id="@+id/weatherButton"
+        android:layout_width="match_parent"
+        android:text="See Weather Forecast"
+        android:layout_columnSpan="2"
+        />
 </GridLayout>
 
 
