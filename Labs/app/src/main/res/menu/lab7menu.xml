@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/t1"
+        android:icon="@drawable/megaphone"
+        android:title="title1"
+        android:showSupportAction="always"/>
+
+    <item android:id="@+id/t2"
+        android:icon="@drawable/discount-2"
+        android:title="title2"
+        android:showSupportAction="always"/>
+
+    <item android:id="@+id/t3"
+        android:icon="@drawable/discount"
+        android:title="title3"
+        android:showSupportAction="never"/>
+
+</menu>

@@ -90,6 +90,13 @@ android:layout_gravity="fill">
         android:text="See Weather Forecast"
         android:layout_columnSpan="2"
         />
+
+    <Button
+        android:id="@+id/testToolbar"
+        android:layout_width="match_parent"
+        android:text="go to Test toolbar"
+        android:layout_columnSpan="2"
+        />
 </GridLayout>
 
 
