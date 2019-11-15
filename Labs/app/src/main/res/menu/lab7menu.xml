@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/t1"
         android:icon="@drawable/megaphone"
         android:title="title1"
-        android:showSupportAction="always"/>
+        app:showAsAction="always"/>
 
     <item android:id="@+id/t2"
-        android:icon="@drawable/discount-2"
+        android:icon="@drawable/row_send"
         android:title="title2"
-        android:showSupportAction="always"/>
+        app:showAsAction="always"/>
 
     <item android:id="@+id/t3"
         android:icon="@drawable/discount"
         android:title="title3"
-        android:showSupportAction="never"/>
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/t4"
+        android:icon="@drawable/discount"
+        android:title="title overflow"
+        app:showAsAction="never"/>
 
 </menu>

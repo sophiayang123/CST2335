@@ -52,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.testToolbar);
         button.setOnClickListener(clk->{
-            Intent intent = new Intent(this, WeatherForecast.class);
+            Intent intent = new Intent(this, TestToolbar.class);
             startActivity(intent);
         });
 
