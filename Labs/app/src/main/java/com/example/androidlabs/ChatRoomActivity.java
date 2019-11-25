@@ -2,6 +2,7 @@ package com.example.androidlabs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +33,13 @@ public class ChatRoomActivity extends AppCompatActivity {
     private Message message;
     private ArrayList<Message> chatMessage = new ArrayList<>();
     myDatabaseOpenHelper myHelper  = new myDatabaseOpenHelper(this);
+
+    public static final String ITEM_SELECTED = "ITEM";
+    public static final String ITEM_ID = "ID";
+    public static final String ITEM_sendOrRecive = "sendOrRecive";
+    public static final int EMPTY_ACTIVITY = 345;
+    public static final String POSITION = "POSITION";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +70,54 @@ public class ChatRoomActivity extends AppCompatActivity {
             myHelper.addData(message.getMsg(), message.getResponse());
         });
 
-        receive = (Button) findViewById(R.id.receive_button);
-        receive.setOnClickListener( clk ->{
-            sendMsg = false;
-            message = new Message(chatText.getText().toString(), false);
-            mylist.add(message);
-            chatText.getText().clear();
-            myHelper.addData(message.getMsg(), message.getResponse());
-        });
+//        receive = (Button) findViewById(R.id.receive_button);
+//        receive.setOnClickListener( clk ->{
+//            sendMsg = false;
+//            message = new Message(chatText.getText().toString(), false);
+//            mylist.add(message);
+//            chatText.getText().clear();
+//            myHelper.addData(message.getMsg(), message.getResponse());
+//        });
+
+
+        boolean isTable = findViewById(R.id.fragmentLocation) != null;
 
         listView.setAdapter(mylist= new MyListAdapter());
+        listView.setOnItemClickListener((list, item, position, id )->{
+            Bundle dataToPass = new Bundle();
+
+            Message message = (Message)list.getItemAtPosition(position);
+
+            dataToPass.putString(ITEM_SELECTED,message.getMsg());
+
+            dataToPass.putLong(ITEM_ID, message.getID());
+
+            dataToPass.putInt(POSITION, position);
+
+            Boolean response = chatMessage.get(position).getResponse();
+            String sendOrResponse;
+            if(response){
+                sendOrResponse = "send";
+            }else
+                sendOrResponse = "recive";
+            dataToPass.putString(ITEM_sendOrRecive, sendOrResponse);
+
+            if(isTable){
+                DetailFragment dFragment = new DetailFragment ();
+                dFragment.setArguments(dataToPass);
+                dFragment.setTablet(true);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentLocation, dFragment)
+//                        .add(R.id.fragmentLocation,dFragment)
+//                        .addToBackStack("AnyName")
+                        .commit();
+            }else{
+                Intent emptyActity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                emptyActity.putExtras(dataToPass); //send data to next activity
+                startActivityForResult(emptyActity, EMPTY_ACTIVITY); //make the transition
+            }
+        });
 
     }
 
@@ -141,6 +188,29 @@ public class ChatRoomActivity extends AppCompatActivity {
         public void add(Message message){
             chatMessage.add(message);
             notifyDataSetChanged();
+        }
+    }
+    public void deleteMessageId(int id, int position)
+    {
+        myHelper.deleteEntry(id);
+        chatMessage.remove(mylist.getItem(position));
+        mylist.notifyDataSetChanged();
+    }
+
+    //This function only gets called on the phone. The tablet never goes to a new activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == EMPTY_ACTIVITY)
+        {
+            if(resultCode == RESULT_OK) //if you hit the delete button instead of back button
+            {
+                long ID = data.getLongExtra(ITEM_ID, 0);
+
+                int position = data.getIntExtra(POSITION, 0);
+
+                deleteMessageId(Integer.parseInt(Long.toString(ID)), position);
+            }
         }
     }
 }

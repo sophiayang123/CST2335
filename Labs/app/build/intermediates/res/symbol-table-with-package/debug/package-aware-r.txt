@@ -1083,6 +1083,7 @@ id custom
 id customPanel
 id decor_content_parent
 id default_activity_button
+id deleteButton
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1106,6 +1107,7 @@ id fill_vertical
 id filled
 id fixed
 id forever
+id fragmentLocation
 id ghost_view
 id gone
 id group_divider
@@ -1114,6 +1116,7 @@ id home
 id homeAsUp
 id icon
 id icon_group
+id idText
 id ifRoom
 id image
 id image1
@@ -1164,6 +1167,7 @@ id progressbar
 id radio
 id receiveText
 id receive_button
+id recipe_topic
 id right
 id right_icon
 id right_side
@@ -1188,6 +1192,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id sendOrRecive
 id sendText
 id send_button
 id shortcut
@@ -1328,6 +1333,8 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout empty_activity
+layout fragment
 layout message_receive
 layout message_send
 layout mtrl_layout_snackbar

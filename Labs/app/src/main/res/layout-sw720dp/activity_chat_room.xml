@@ -11,11 +11,18 @@
     <ListView
         android:id="@+id/list_of_message"
         android:layout_above="@+id/message"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:divider="@android:color/black"
         android:dividerHeight="0dp"/>
+
+    <FrameLayout
+        android:id="@+id/fragmentLocation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:layout_toRightOf="@id/list_of_message"/>
 
 
     <EditText
@@ -23,25 +30,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="0dp"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="1dp"
-        android:layout_toRightOf="@+id/send_button"
+        android:layout_toLeftOf="@+id/send_button"
         android:ems="9"
         android:hint="@string/textview8" />
+
     <Button
         android:id="@+id/send_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/list_of_message"
         android:layout_alignParentBottom="true"
-        android:text="@string/sendbutton"/>
+        android:text="@string/sendbutton" />
 
-    <Button
-        android:id="@+id/receive_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="-2dp"
-        android:text="@string/receivebutton"
-        android:layout_toRightOf="@+id/message" />
 
 </RelativeLayout>

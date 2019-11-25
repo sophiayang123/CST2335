@@ -3,13 +3,11 @@ package com.example.androidlabs;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.nfc.Tag;
-import android.util.Log;
 
-import androidx.annotation.Nullable;
 
 public class  myDatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "myDatabaseFile";
@@ -58,9 +56,12 @@ public class  myDatabaseOpenHelper extends SQLiteOpenHelper {
         }else{
             return true;
         }
-
-
     }
 
-
+    public int deleteEntry(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String whereCluse = COL_ID+ "=?";
+        int numberOfEntriesDeleted = db.delete(TABLE_NAME, whereCluse, new String[]{Integer.toString(id)});
+        return numberOfEntriesDeleted;
+    }
 }
